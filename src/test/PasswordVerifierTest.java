@@ -22,7 +22,7 @@ class PasswordVerifierTest {
     void meetsAllRequirements(String password, boolean expected) {
         boolean actual = passwordVerifier.meetsAllRequirements(password);
 
-        Assertions.assertEquals(actual, expected);
+        Assertions.assertEquals(expected, actual);
         Assertions.assertNotNull(actual);
     }
 
@@ -37,7 +37,7 @@ class PasswordVerifierTest {
     void meetsThreeRequirements(String password, boolean expected) {
         boolean actual = passwordVerifier.meetsThreeRequirements(password);
 
-        Assertions.assertEquals(actual, expected);
+        Assertions.assertEquals(expected, actual);
         Assertions.assertNotNull(actual);
     }
 
@@ -53,7 +53,7 @@ class PasswordVerifierTest {
     void hasOneLowercaseLetter(String password, boolean expected) {
         boolean actual = passwordVerifier.hasOneLowercaseLetter(password);
 
-        Assertions.assertEquals(actual, expected);
+        Assertions.assertEquals(expected, actual);
         Assertions.assertNotNull(actual);
     }
 
@@ -69,7 +69,7 @@ class PasswordVerifierTest {
     void isNotNull(String password, boolean expected) {
         boolean actual = passwordVerifier.isNotNull(password);
 
-        Assertions.assertEquals(actual, expected);
+        Assertions.assertEquals(expected, actual);
         Assertions.assertNotNull(password);
     }
 }
