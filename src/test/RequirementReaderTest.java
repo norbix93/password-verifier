@@ -10,10 +10,10 @@ import java.util.List;
 class RequirementReaderTest {
 
     private RequirementReader reader = new RequirementReader();
-    private List<Requirement> actual = reader.readRequirements();
 
     @Test
     void readRequirements() {
+        List<Requirement> actual = reader.readRequirements();
 
         Assertions.assertNotNull(actual);
         Assertions.assertEquals(4, actual.size());
@@ -22,28 +22,28 @@ class RequirementReaderTest {
 
     @Test
     void readPatternForAllRequirements() {
-        String actualPattern = reader.readPatternForAllRequirements();
+        String actual = reader.readPatternForAllRequirements();
         String expected = "^(?=(.*[A-Z]))(?=(.*[a-z]))(?=(.*[\\d])).{9,}$.*$";
 
-        Assertions.assertNotNull(actualPattern);
-        Assertions.assertEquals(expected, actualPattern);
+        Assertions.assertNotNull(actual);
+        Assertions.assertEquals(expected, actual);
     }
 
     @Test
     void readPatternForThreeRequirements() {
-        String actualPattern = reader.readPatternForThreeRequirements();
+        String actual = reader.readPatternForThreeRequirements();
         String expected = "^(?=(.*[A-Z]))(?=(.*[a-z]))(?=(.*[\\d])).*$";
 
-        Assertions.assertNotNull(actualPattern);
-        Assertions.assertEquals(expected, actualPattern);
+        Assertions.assertNotNull(actual);
+        Assertions.assertEquals(expected, actual);
     }
 
     @Test
     void readPatternForOneRequirement() {
-        String actualPattern = reader.readPatternForOneRequirement();
+        String actual = reader.readPatternForOneRequirement();
         String expected = "^(?=(.*[a-z])).*$";
 
-        Assertions.assertNotNull(actualPattern);
-        Assertions.assertEquals(expected, actualPattern);
+        Assertions.assertNotNull(actual);
+        Assertions.assertEquals(expected, actual);
     }
 }
