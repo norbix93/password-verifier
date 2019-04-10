@@ -64,5 +64,6 @@ class PasswordVerifierTest {
         boolean actual = passwordVerifier.isNotNull(null);
 
         assertEquals(false, actual);
+        assertNotNull(actual);
     }
 }
