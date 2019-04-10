@@ -1,10 +1,12 @@
 package test;
 
-import org.junit.jupiter.api.Assertions;
+import main.PasswordVerifier;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
-import main.PasswordVerifier;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 class PasswordVerifierTest {
 
@@ -22,8 +24,8 @@ class PasswordVerifierTest {
     void meetsAllRequirements(String password, boolean expected) {
         boolean actual = passwordVerifier.meetsAllRequirements(password);
 
-        Assertions.assertEquals(expected, actual);
-        Assertions.assertNotNull(actual);
+        assertEquals(expected, actual);
+        assertNotNull(actual);
     }
 
     @ParameterizedTest
@@ -37,8 +39,8 @@ class PasswordVerifierTest {
     void meetsThreeRequirements(String password, boolean expected) {
         boolean actual = passwordVerifier.meetsThreeRequirements(password);
 
-        Assertions.assertEquals(expected, actual);
-        Assertions.assertNotNull(actual);
+        assertEquals(expected, actual);
+        assertNotNull(actual);
     }
 
     @ParameterizedTest
@@ -53,23 +55,14 @@ class PasswordVerifierTest {
     void hasOneLowercaseLetter(String password, boolean expected) {
         boolean actual = passwordVerifier.hasOneLowercaseLetter(password);
 
-        Assertions.assertEquals(expected, actual);
-        Assertions.assertNotNull(actual);
+        assertEquals(expected, actual);
+        assertNotNull(actual);
     }
 
-    @ParameterizedTest
-    @CsvSource(value = {
+    @Test
+    void isNotNull() {
+        boolean actual = passwordVerifier.isNotNull(null);
 
-            "abcABC, true",
-            "AAABBBCCC, true",
-            "AAA123BBB123CCC, true",
-            "AAA, true",
-            "aaa, true"
-    })
-    void isNotNull(String password, boolean expected) {
-        boolean actual = passwordVerifier.isNotNull(password);
-
-        Assertions.assertEquals(expected, actual);
-        Assertions.assertNotNull(password);
+        assertEquals(false, actual);
     }
 }
